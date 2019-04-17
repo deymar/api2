@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>CURSO </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="https://drive.google.com/uc?id=1UO1UBa5jkav8waqA3-fApoyk5jQq7E8g" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+  <div class="main-banner" id="main-banner">
+
+  				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"> <p class="color_letra"><</p> </div>
+
+			  	<div class="imgban" id="imgban3">
+			  			<center>
+			  			
+								<iframe  class="dim" src="https://www.youtube.com/embed/XtEzjUtxEk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>	
+								</iframe>
+						</center>	
+			  	</div>
+
+			  	<div class="imgban" id="imgban2">
+			  				<center>
+								
+								<iframe  class="dim" src="https://www.youtube.com/embed/iLW28JoQU9w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>	
+								</iframe>
+							</center>	
+			  	</div>
+
+			  	<div class="imgban" id="imgban1">
+			  				<center>
+								
+								<iframe  class="dim" src="https://www.youtube.com/embed/_2c51ges-w4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>	
+								</iframe>
+						     </center>	
+			  	</div>
+
+				<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"> <p class="color_letra">></p>  </div>
+  </div>
+
+
+
+<script>
+var bannerStatus =1;
+var bannerTimer = 5000;
+window.onload = function()
+{
+	bannerLoop();
+}
+
+var startBannerLoop = setInterval(function()
+{  bannerLoop();
+},bannerTimer);
+
+/////////  para el mouse
+document.getElementById("main-banner").onmouseenter = function(){
+	clearInterval(startBannerLoop);
+}
+
+document.getElementById("main-banner").onmouseleave = function(){
+	startBannerLoop= setInterval(function(){
+		bannerLoop();
+	},bannerTimer);
+}
+/////////
+
+document.getElementById("imgbanbtn-prev").onclick=function(){
+	if(bannerStatus===1)
+	{
+	  bannerStatus=2;
+	  console.error(bannerStatus);
+	}
+
+	else if(bannerStatus===2)
+	{
+	  bannerStatus=3;
+	  console.error(bannerStatus);
+	}
+	else if(bannerStatus===3)
+	{
+	  bannerStatus=1;
+	  console.error(bannerStatus);
+	}
+	bannerLoop();
+}
+document.getElementById("imgbanbtn-next").onclick=function(){
+	bannerLoop();
+}
+
+function bannerLoop()
+{//2 3 1
+		if(bannerStatus===1)
+		{
+			document.getElementById("imgban2").style.opacity = "0";
+			setTimeout(function()
+			{
+			   document.getElementById("imgban1").style.top = "0%";
+			   document.getElementById("imgban1").style.zIndex = "1000";
+
+			   document.getElementById("imgban2").style.top = "-100%";
+			   document.getElementById("imgban2").style.zIndex = "1500";
+			 
+			   document.getElementById("imgban3").style.top = "100%";
+			   document.getElementById("imgban3").style.zIndex = "500";
+			}, 500);
+
+			setTimeout(function()
+			{ 
+			document.getElementById("imgban2").style.opacity = "1";
+			},1000);
+			   bannerStatus = 2;
+		} //fin del IF
+
+			else if(bannerStatus===2)
+		{
+			document.getElementById("imgban3").style.opacity = "0";
+			setTimeout(function()
+			{
+			   document.getElementById("imgban2").style.top = "0%";
+			   document.getElementById("imgban2").style.zIndex = "1000";
+
+			   document.getElementById("imgban3").style.top = "-100%";
+			   document.getElementById("imgban3").style.zIndex = "1500";
+			 
+			   document.getElementById("imgban1").style.top = "100%";
+			   document.getElementById("imgban1").style.zIndex = "500";
+			}, 500);
+
+			setTimeout(function()
+			{ 
+			document.getElementById("imgban3").style.opacity = "1";
+			},1000);
+			   bannerStatus = 3;
+		} //fin del IF
+
+			else if(bannerStatus===3)
+		{
+			document.getElementById("imgban1").style.opacity = "0";
+			setTimeout(function()
+			{
+			   document.getElementById("imgban3").style.top = "0%";
+			   document.getElementById("imgban3").style.zIndex = "1000";
+
+			   document.getElementById("imgban1").style.top = "-100%";
+			   document.getElementById("imgban1").style.zIndex = "1500";
+			 
+			   document.getElementById("imgban2").style.top = "100%";
+			   document.getElementById("imgban2").style.zIndex = "500";
+			}, 500);
+
+			setTimeout(function()
+			{ 
+			document.getElementById("imgban1").style.opacity = "1";
+			},1000);
+			   bannerStatus = 1;
+		} //fin del IF
+
+
+
+} //fin de la funcion
+
+
+
+
+
+</script>
+
+</body>
+</html>
